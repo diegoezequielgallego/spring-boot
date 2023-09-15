@@ -18,8 +18,8 @@ public class DataInitializer implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        createAndSaveUser("user", "123123", "USER");
-        createAndSaveUser("user_admin", "333444", "ADMIN");
+        createAndSaveUser("user", "123", "USER");
+        createAndSaveUser("user_admin", "333", "ADMIN");
         System.out.println("Se crearon correctamente los usuarios");
     }
 
@@ -28,6 +28,7 @@ public class DataInitializer implements CommandLineRunner {
         user.setUsername(username);
         user.setPassword(passwordEncoder.encode(password));
         user.setRoles(role);
+        user.setEnabled(true);
         userRepository.save(user);
     }
 }
